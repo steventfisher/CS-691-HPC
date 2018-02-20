@@ -1,0 +1,173 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+\usetheme{Madrid}
+\usepackage{graphicx}
+
+\setbeamerfont{footnote}{size=\tiny}
+\setbeamerfont{footnotemark}{size=\tiny}
+\setbeamertemplate{navigation symbols}{}%remove navigation symbols
+
+\title[CS 691]{Comparison of Weighted Breadth First Search on Distributed Cluster and GPU}
+\author{Steven Fisher}
+\institute[UNR]{University of Nevada, Reno}
+\date
+{CS 691}
+%\logo{\includegraphics[height=1.5cm]{pms_282_stack_text.png}}
+
+%\AtBeginSection[]
+%{
+%\begin{frame}
+%    \frametitle{Table of Contents}
+%    \tableofcontents[currentsection]
+%\end{frame}
+%}
+
+\begin{document}
+
+\frame{\titlepage}
+\begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents
+\end{frame}
+
+\section{Introduction}
+\begin{frame}
+  \frametitle{Introduction}  
+  The internet is the largest man made network in existence, which is always evolving. There are various reasons for wishing to investigate the properties of this network. These could aide in the following:
+  \begin{itemize}
+  \item{New Deployments}
+  \item{Cyber-security}
+  \item{Find problems/issues}
+  \item{Protocol Design}
+  \item{Determine how it has changed}
+  \end{itemize}    
+\end{frame}
+\section{Related Works}
+\begin{frame}
+  \frametitle{Related Works}
+  \begin{itemize}
+  \item{D. Merrill, M. Garland, and A. Grimshaw, “Scalable GPU graph traversal,” in Proc. ACM SIGPLAN 17th Symp. Principles Practice Parallel Program., 2012, pp. 117–128.}
+  \item{J. R. Crobak, J. W. Berry, K. Madduri, and D. A. Bader, “Advanced
+shortest paths algorithms on a massively-multithreaded
+architecture,” in Proc. IEEE Int. Parallel Distrib. Process. Symp.,
+2007, pp. 1–8.}
+  \item{Implement a Cuda GPU weighted BFS algorithm}
+  \item{U. Meyer and P. Sanders, “D-stepping: A parallelizable shortest
+path algorithm,” J. Algorithms, vol. 49, no. 1, pp. 114–152, 2003.}
+  \item{K. Kelley and T. B. Schardl, “Parallel single-source shortest
+paths,” MIT computer science and artificial intelligence labora-
+tory, internal report, 2010.}
+  \item{Hong, Sungpack, Tayo Oguntebi, and Kunle Olukotun. "Efficient parallel graph exploration on multi-core CPU and GPU." Parallel Architectures and Compilation Techniques (PACT), 2011 International Conference on. IEEE, 2011.}
+  \end{itemize}
+\end{frame}
+\section{Graph Processing}
+\begin{frame}
+  \frametitle{Pregel}
+	\begin{itemize}
+	\item{Pregel - Parallel, Graph, and Google}
+	\item{Created by Google}
+	\item{Message-passing interface constraind to the edges of a graph.}
+	\item{Pregel framework are algorithms in which the
+computation of state for a given node depends only on the states of its neighbours.}
+	\item{Pregel computation takes a graph and a corresponding
+set of vertex states as its inputs}
+	\item{each iteration, referred to as a superstep, each vertex can send
+a message to its neighbors,  process messages it received in a previous superstep,  and update its
+state}
+	\end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Pregel-Cont.}
+	\begin{itemize}
+	\item{Each superstep consists of a round of messages being passed between neighbors and an
+update of the global vertex state}
+	\item{PageRank - At each superstep, each vertex
+updates its state with a weighted sum of PageRanks from all of its neighbors, processing the set of
+previous incoming message}
+	\item{Sends out an equal share of its new PageRank to each of its
+neighbors, sending out a set of outgoing messages}
+	\item{Continues until it converges}
+	\end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{GraphX}
+	\begin{itemize}
+	\item{Spark's graph processing and computation API}
+	\item{Implements the Pregel paradigm within Spark using Resilient Distributed Datasets(RDD)}
+	\item{Separate RDDs are created to represent the graph,
+the global vertex state, and the messages from each vertex to its neighbor}
+	\item{ because RDDs
+are immutable objects in Spark, new RDDs representing the vertex state and outgoing messages
+are created at each superstep of the computation}
+	\item{Built on to of Apache Hadoop}
+	\end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Apache Giraph}
+	\begin{itemize}
+	\item{Iterative graph processing system built for high scalability}
+	\item{Open-source counterpart to Pregel}
+	\item{Adds several features beyond the basic Pregel model}
+	\item{These include master computation, sharded aggregators, edge-oriented input, out-of-core computation}
+	\item{Giraph utilizes Apache Hadoop's MapReduce implementation to process graphs}
+	\item{ Facebook used Giraph with some performance improvements to analyze one trillion edges using 200 machines in 4 minutes}
+	\end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{GraphLab(Turi)}
+	\begin{itemize}
+	\item{Developed by Prof. Carlos Guestrin of Carnegie Mellon University in 2009}
+	\item{Targeted for sparse iterative graph algorithms}
+	\item{GraphLab was originally developed for Machine Learning tasks}
+	\item{Found great success at a broad range of other data-mining tasks}
+	\item{Design Considerations: Sparse data with local dependencies, Iterative algorithms, Potentially asynchronous execution}
+	\item{August 5, 2016, Turi was acquired by Apple Inc}	
+	\end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{GraphLab(Turi)}
+  Main Features
+	\begin{itemize}
+	\item{A unified multicore and distributed API: write once run efficiently in both shared and distributed memory systems}
+	\item{Tuned for performance: optimized C++ execution engine leverages extensive multi-threading and asynchronous IO}
+	\item{Scalable: GraphLab intelligently places data and computation using sophisticated new algorithms}
+	\item{HDFS Integration}
+	\item{Powerful Machine Learning Toolkits}	
+	\end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{GraphChi}
+  Main Features
+	\begin{itemize}
+	\item{Spinoff project of GraphLab, an open source, distributed, in-memory software system for analytics and machine-learning}
+	\item{Designed specifically to run on a single computer with limited memory}
+	\item{It uses a system called Parallel Sliding Windows (PSW), which shards a graph and processes it one subgraph at a time}	
+	\item{PSW can process edges efficiently from disk, requiring only a small number of non-sequential disk access, while allowing for asynchronous iterative computations}
+	\item{Used to process large graphs on a single machine.}	
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Proposed Project}
+  \textbf{Weighted BFS}
+  \begin{itemize}
+  \item{Implement a sequential weighted BFS algorithm}
+  \item{Implement a parallelized weighted BFS algorithm for a distributed computing environment}
+  \item{Implement a Cuda GPU weighted BFS algorithm}
+  \item{Compare computation times and obtain paths}
+  \end{itemize}
+\end{frame}
+\section{Conclusion}
+\begin{frame}
+  \frametitle{Conclusion}
+  We have discussed different graph API's from different source.  The system that I will be working
+  on currently has 7 nodes plus a master. We have already installed Hadoop and since Giraph is based on Pregel,
+  and works with Yarn. I will begin by working on implementing in our environment.
+\end{frame}
+\begin{frame}
+  \begin{center}
+    Questions?
+  \end{center}
+  \end{frame}
+\end{document}
