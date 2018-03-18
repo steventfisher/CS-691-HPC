@@ -1,0 +1,25 @@
+\begin{prob}[1.2]
+  Show that the convex hull of a set $S$ is the intersection of all convex
+  sets that contain $S$.
+\end{prob}
+\begin{proof}
+  Suppose that $H$ is the convex hull of $S$.  We will let $G$ be the
+  intersection of all convex sets that contain $S$.  So,
+  $G = \Cap D$ such thuat $D$ is convex and $S \subseteq D$.
+  We need to show that $H = G$, in order to do this we will need to show that
+  $H \subseteq G$ and $G \subseteq H$.
+
+  We will first show that $H \subseteq G$.  Let $x \in H$.  Now since, $H$ is
+  convex, then we know that $x$ can be expressed as a combination of points
+  $x_{1}, \ldots,x_{n} \in S$. Let $D$ be any convex set that contains $S$. So,
+  we would then also know that $x_{1}, \ldots,x_{n} \in D$. Therefore, it
+  follows that $x \in D$. Now since $D$ was arbitrary, then we know that
+  $x$ is in the intersection of all convex sets that contain $S$. Thus
+  $x \in G$.  Therefore, $H \subseteq G$.
+
+  Now, we need to show that $G \subseteq H$.  Since, by definition of a convex
+  hull, we know that $H$ is convex and contains $S$.  Therefore, $H = D$ for
+  some $D$ that was used to produce $G$. It follows that $G \subseteq H$.
+  Hence, $H = G$. So, the convex hull of a set $S$ is the intersection of all
+  convex sets that contain $S$.
+\end{proof}

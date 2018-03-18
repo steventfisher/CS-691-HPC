@@ -1,0 +1,54 @@
+\begin{prob}[1.7] Which of the following sets are convex?
+\end{prob}
+  \begin{enumerate}[label=(\alph*)]
+  \item{A slab, i.e., a set of the form $\{x \in \mathbf{R}^{n} \vert $
+    $\alpha \leq a^{T}x \leq \beta \}$\\
+    \begin{sol}
+      We know that a slab is the intersection of halfspaces, and since the
+      intersection of halfspaces is convex, then a slab is convex.
+  \end{sol}}
+  \item{A rectangle, i.e., a set of the form
+    $\{x \in \mathbf{R}^{n} \vert \alpha_{i} \leq x_{i} \leq \beta_{i},$
+    $i = 1, \ldots, n\}$\\
+    \begin{sol}
+      Since, a rectangle is the finite intersection of halfsapces, then
+      a rectangle is convex.
+  \end{sol}}
+  \item{A wedge, i.e.,$\{x \in \mathbf{R}^{n} \vert a_{1}^{T}x \leq b_{1},$
+    $a_{2}^{T}x \leq b_{2}\}$\\
+    \begin{sol}
+      A wedge is the intersection of two halfspaces, so it is convex.
+  \end{sol}}    
+  \item{The set of points closer to a given point than a given set, i.e., $\{x \vert \Vert x - x_{0}$
+    $\Vert_{2} \leq \Vert x - y \Vert_{2}$, for all $y \in S\}$, where
+    $S \subseteq \mathbf{R}^{n}$\\
+    \begin{sol}
+      We can express our set as the intersection of the set
+      $\{x \vert \Vert x - x_{0}\Vert_{2} \leq \Vert x - y \Vert_{2}\}$ Now, if
+      we fix $y$ then this should be the intersection of halfspaces, which
+      would be convex.
+  \end{sol}}    
+  \item{The set of points closer to one set than another, i.e.,
+    $\{x \vert $\textbf{dist}$(x,S) \leq $\textbf{dist}$(x,T)\}$, where
+    $S,T \subseteq \mathbf{R}^{n}$ and \textbf{dist}$(x,S) = $
+    $\inf\{\Vert x- z \Vert_{2} \vert z \in S\}$\\
+    \begin{sol}
+      Not convex. In order to show this we need a counterexample.
+      Suppose that $S = \{-1,1\}$ and $T = {0}$. Now, since we are looking
+      at the set of points that are close to one set than another, then
+      the set of points closer to $S$ thant $T$ is
+      $\{x \in \mathbf{R} \vert x \leq -\frac{1}{2} \mbox{ or } x \geq \frac{1}{2}\}$. This set is not convex.
+  \end{sol}}    
+  \item{The set $\{x \vert x + S_{2} \subseteq S_{1}\}$, where $S_{1},S_{2}$
+    $\subseteq \mathbf{R}^{n}$, with $S_{1}$ convex\\
+    \begin{sol}
+      We can express $\{x \vert x + S_{2} \subseteq S_{1}\} = \Cap_{y \in S_{2}} \{ x \vert x + y \in S_{1}\}$. Now, since $\{ x \vert x + y \in S_{1}\}$ are convex, then the intersection is convex. Hence, our set is convex.
+  \end{sol}}    
+  \item{The set of points whose distance to $a$ does not exceed a fixed fraction
+    $\theta$ of the distance to $b$, i.e., the set
+    $\{x \vert \Vert x -a \Vert_{2} \leq \theta \Vert x - b \Vert_{2} \}$.
+    You can assume $a \neq b$ and $0 \leq \theta \leq 1$.\\
+    \begin{sol}
+      $\{x \vert \Vert x -a \Vert_{2} \leq \theta \Vert x - b \Vert_{2} \} = \{x \vert \Vert x -a \Vert^{2}_{2} \leq \theta \Vert x - b \Vert^{2}_{2} \} = \{x \vert (1-\theta^{2})x^{T}x - 2(a - \theta^{2}b)^{T}x +(a^{T}a - \theta^{2}b^{T}b) \leq 0 \}$. Which is a halfspace, and thus convex.
+  \end{sol}}    
+  \end{enumerate}

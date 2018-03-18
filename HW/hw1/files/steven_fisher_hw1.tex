@@ -1,0 +1,69 @@
+\documentclass{article}
+\usepackage{amsthm} % For theorem environment
+\usepackage{amsmath} % For align environment
+\usepackage{enumitem} % For changing the enumerate labels
+\usepackage{fancybox} % For the shadow box
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{moreverb,plain,graphicx}
+\usepackage{fancyhdr}
+
+\def\verbatimtabsize{4\relax}
+\def\listingoffset{1em}
+\def\listinglabel#1{\llap{\tiny\it\the#1}\hskip\listingoffset\relax}
+\def\mylisting#1{{\fontsize{10}{11}\selectfont\listinginput[1]{1}{#1}}}
+\def\myoutput#1{{\fontsize{10}{11}\selectfont\verbatimtabinput{#1}}}
+
+
+% \newtheorem*{environment_name}{theorem_name_text}
+% environment_name defines the name you use to declare a theorem. For
+% example, \begin{environment_name}...\end{environment_name. The
+% theorem_name_text is the title used in the pdf. For example, if
+% theorem_name_text is ``Theorem'', then ``Theorem'' will be put in
+% front of the text in the pdf. I'm using ``Problem'' so we get the
+% ``Problem'' titles. The `*' tells latex to not number it for you. I
+% don't want latex to number it since I'll number each problem with
+% their problem number in the text.
+\newtheorem*{prob}{Problem} % Defines the \begin{prob} environment
+
+% \newcommand{\command_name}{command_action} is a macro that replaces
+% \command_name with command_action.
+\newcommand{\sol}{Solution:\\}
+\newcommand{\inter}{\textit{interval}}
+\newcommand{\todo}{\shadowbox{\textbf{TODO}}}
+
+\newcommand{\src}[1]{\input{source/#1}}
+
+%\renewcommand\qedsymbol{}	
+%\renewcommand\qedsymbol{\ding{110}}
+
+% \newcommand{\command_name}[num_params]{command_action} is a
+% num_params parameter macro so that you can do
+% \command_name{parameter}. You can consider adding a parameter to the
+% \todo macro so you can add a note as well.
+\newcommand{\bnum}[1]{\textbf{#1}}
+  %\mylisting{\src{p2q3p3.c}}
+  %\myoutput{\src{p2q3p3.dat}}
+\begin{document}
+	\begin{flushright}
+		Steven T. Fisher\\
+		CS 791\\
+		MW 2:30 pm - 3:45 pm\\
+		HW1
+	\end{flushright}
+\renewcommand\qedsymbol{\ding{110}}
+\src{h1q1}
+\newpage
+\src{h1q2}
+\newpage
+\src{h1q3}
+\newpage
+\src{h1q4}
+\newpage
+\src{h1q5}
+\newpage
+\src{h1q6}
+\newpage
+\renewcommand\qedsymbol{}
+\src{h1q7}
+\end{document}

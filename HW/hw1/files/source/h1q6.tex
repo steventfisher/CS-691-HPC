@@ -1,0 +1,18 @@
+\begin{prob}[1.6]
+  Let $\mathcal{C} \in \mathbf{R}^{n}$ be the solution set of a quadratic
+  inequality, $\mathcal{C} = \{ x \in \mathbf{R}^{n} \vert x^{T}Ax + b^{T}x + c$
+  $\leq 0\}$ with $A \in \mathbf{S}^{n}$, $b \in \mathbf{R}^{n}$, and
+  $c \in \mathbf{R}^{n}$. Show that $\mathcal{C}$ is convex if
+  $A \succeq 0$.
+\end{prob}
+\begin{proof}
+  We know that a set is convex, if and only if  its 
+  intersection with an arbitrary line $\{\hat{x} + tv \vert t \in \mathbf{R}\}$
+  Therefore, if we let $\alpha = v^{T}Av, \beta = b^{T}v + 2\hat{x}^{T}AV$, and
+  $\gamma = c + b^{T}\hat{x} + \hat{x}^{T}A\hat{x}$ we have
+  $(\hat{x} + tv)^{T}A(\hat{x} + tv) + b^{T}(\hat{x} + tv) + c = \alpha t^{2} + \beta t + \gamma$.
+  Now, if we were to intersect $\mathcal{C}$ with our line, we get the set
+  $\{\hat{x} + tv \vert \alpha t^{2} + \beta t + \gamma \leq 0\}$. This set is
+  convex for $\alpha \geq 0$.  In addition this would hold for any $v$. Thus,
+  $A \succeq 0$. 
+\end{proof}

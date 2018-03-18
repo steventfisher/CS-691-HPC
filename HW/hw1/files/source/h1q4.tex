@@ -1,0 +1,71 @@
+\begin{prob}[1.4]Show that:
+\end{prob}  
+  \begin{enumerate}[label=(\alph*)]
+  \item{The intersection $\cap_{i \in I}\mathcal{C}_{i}$ of a collection $\{\mathcal{C}_{i} | i \in I\}$ of cones is a cone.
+    \begin{proof}
+      Let $x \in \cap_{i \in I}\mathcal{C}_{i}$. Now, let $\alpha$ be a positive
+      scalar.  Now, since $x \in \cap_{i \in I}\mathcal{C}_{i}$, then
+      $x \in \mathcal{C}_{i}$ for all $i \in I$. Also, since each of the
+      $\mathcal{C}_{i}$'s are cones, then we know that
+      $\alpha x \in \mathcal{C}_{i} \forall i \in I$. Hence,
+      $\alpha x \in \cap_{i \in I}\mathcal{C}_{i}$. Therefore,
+      $x \in \cap_{i \in I}\mathcal{C}_{i}$ is a cone.
+    \end{proof}}
+  \item{The Cartesian product $\mathcal{C}_{1} \times \mathcal{C}_{2}$ of two
+    cones $\mathcal{C}_{1}$ and $\mathcal{C}_{2}$ is a cone.
+    \begin{proof}
+      Let $x \in \mathcal{C}_{1} \times  \mathcal{C}_{2}$ and let $\alpha$ be
+      a positive scalar. Now, since
+      $x \in \mathcal{C}_{1} \times  \mathcal{C}_{2}$, then $x = (x_{1},x_{2})$
+      for some $x_{1} \in \mathcal{C}_{1}$ and $x_{2} \in \mathcal{C}_{2}$. Now
+      since $\mathcal{C}_{1}$ and $\mathcal{C}_{2}$ are cones, then
+      $\alpha x_{1} \in \mathcal{C}_{1}$ and $\alpha x_{2} \in \mathcal{C}_{2}$.
+      Hence, $\alpha x = (\alpha x_{1}, \alpha x_{2}) \in \mathcal{C}_{1} \times \mathcal{C}_{2}$. Thus, $\mathcal{C}_{1} \times \mathcal{C}_{2}$ is a cone.
+    \end{proof}}    
+  \item{The vector sum $\mathcal{C}_{1} + \mathcal{C}_{2}$ of two cones
+    $C_{1}$ and $\mathcal{C}_{2}$ is a cone.
+    \begin{proof}
+      Let $x \in \mathcal{C}_{1} \times  \mathcal{C}_{2}$ and let $\alpha$ be
+      a positive scalar. Now, since
+      $x \in \mathcal{C}_{1} + \mathcal{C}_{2}$, then $x = x_{1} + x_{2}$
+      for some $x_{1} \in \mathcal{C}_{1}$ and $x_{2} \in \mathcal{C}_{2}$. Now
+      since $\mathcal{C}_{1}$ and $\mathcal{C}_{2}$ are cones, then
+      $\alpha x_{1} \in \mathcal{C}_{1}$ and $\alpha x_{2} \in \mathcal{C}_{2}$.
+      Hence, $\alpha x = \alpha x_{1} + \alpha x_{2} \in \mathcal{C}_{1} + \mathcal{C}_{2}$. Thus, $\mathcal{C}_{1} + \mathcal{C}_{2}$ is a cone
+    \end{proof}}    
+  \item{The image and the inverse image of a cone under a linear
+    transformation is a cone
+    \begin{proof}
+      Let $A$ be a linear transformation of a cone $\mathcal{C}$. Then, we
+      have $A \cdot \mathcal{C}$ is the image of $\mathcal{C}$ under the
+      transformation $A$. Now, let $y \in A \cdot \mathcal{C}$, and let
+      $\alpha$ be a positive scalar. Now, since $A$ is a linear
+      transformation $A x = y$ where $x \in \mathcal{C}$. Now, since
+      $\mathcal{C}$ is a cone then $\alpha x \in \mathcal{C}$. Therefore,
+      $A \alpha x = \alpha y \in A \cdot \mathcal{C}$. Hence,
+      $A \cdot \mathcal{C}$ is a cone.
+
+      Next, we need to show that $A^{-1} \cdot \mathcal{C}$ under the
+      tranformation $A$ is a cone.  Let, $x \in A^{-1} \cdot \mathcal{C}$
+      and let $\alpha$ be a postive scalar. Thus, $A x \in \mathcal{C}$ and
+      since $\mathcal{C}$ is a cone then $\alpha A x \in \mathcal{C}$. Hence,
+      $A(\alpha x) \in \mathcal{C}$. Therefore, $\alpha x \in A^{-1} \cdot \mathcal{C}$.  Thus, $A^{-1} \cdot \mathcal{C}$ is a cone.
+    \end{proof}}    
+  \item{A subset $\mathcal{C}$ is a convex cone if and only if it is closed
+    under addition and positive scalar multiplication, i.e.,
+    $C + C \subset \mathcal{C}$, and
+    $\gamma \mathcal{C} \subset \mathcal{C}$ for all $\gamma > 0$.
+    \begin{proof}
+      $(\Rightarrow)$ Let $\mathcal{C}$ be a convex cone, we want to show that
+      $\mathcal{C}$ is closed under addiotn and positive scalar multiplication.
+      Now, be definition of a cone, we have that $\forall \gamma > 0$,
+      $\gamma \mathcal{C} \subset \mathcal{C}$. Also, note since $\mathcal{C}$
+      is convex, then $\forall x,y \in \mathcal{C} \exists z \in \mathcal{C}$
+      so that $z = \frac{1}{2}(x + y)$.  Therefore, $x + = 2z$. Thus,
+      $\mathcal{C} + \mathcal{C} \subset \mathcal{C}$
+
+      $(\Leftarrow)$ Suppose that $\mathcal{C} + \mathcal{C} \subset \mathcal{C}$ and $\gamma \mathcal{C} \subset \mathcal{C}$. Now, since $\gamma > 0$ is a
+      positive constant, then $\mathcal{C}$ is a cone. So, let $x,y \in \mathcal{C}$ and $\alpha \in (0,1)$. Then $\alpha x \in \mathcal{C}$ and $(1-\alpha)y \in \mathcal{C}$. Now, since $\mathcal{C} + \mathcal{C} \subset \mathcal{C}$, then
+      $\alpha x + (1-\alpha)y \in \mathcal{C}$. Hence, $\mathcal{C}$ is convex.
+    \end{proof}}    
+  \end{enumerate}

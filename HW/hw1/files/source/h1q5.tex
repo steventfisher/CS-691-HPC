@@ -1,0 +1,25 @@
+\begin{prob}[1.5]
+  Is the set $\{ a \in \mathbf{R}^{n} \vert p(0) = 1, \vert p(t) \vert \leq 1 $
+  for $\alpha \leq t \leq \beta\}$, where
+  $p(t) = a_{1} + a_{2}t + \cdots + a_{k}t^{k-1}$, convex? Give details to your
+  solution.
+\end{prob}
+\begin{proof}
+  Let $C = \{ a \in \mathbf{R}^{n} \vert p(0) = 1, \vert p(t) \vert \leq 1 $
+  for $\alpha \leq t \leq \beta\}$ where
+  $p(t) = a_{1} + a_{2}t + \cdots + a_{k}t^{k-1}$.  Now, let $x,y \in C$. We need
+  to show that $z = \theta x + (1- \theta)y \in C$ for $\theta \in [0,1]$.
+  Now, since $x,y \in C$, then we know that $p_{x}(0) = p_{y}(0) = 1$. So,
+  $p_{z}(0) = \theta p_{x}(0) + (1 - \theta)p_{y}(0) = \theta + 1 - \theta = 1$.
+  Next, we need to show that $\vert p_{z}(t) \vert \leq 1 \forall t \in [\alpha,\beta]$. So,
+  \begin{eqnarray*}
+    \vert p_{z}(t) \vert &=& \vert \theta p_{x}(t) + (1 - \theta)p_{y}(t) \vert\\
+    & \leq & \vert \theta p_{x}(t)\vert + \vert (1 - \theta)p_{y}(t) \vert\\
+    &=& \theta \vert p_{x}(t)\vert + (1 - \theta)\vert p_{y}(t) \vert\\
+    &\leq& \theta (1) + (1 - \theta)(1)\\
+    &=&1
+  \end{eqnarray*}
+  Hence, $z \in C$. Thus, $C$ is convex.
+  
+  
+\end{proof}

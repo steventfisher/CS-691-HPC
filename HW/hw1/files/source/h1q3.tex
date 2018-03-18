@@ -1,0 +1,19 @@
+\begin{prob}[1.3]
+  Let $a$ and $b$ be distinct points in $\mathbf{R}^{n}$. Show that the set of
+  all points that are closer (in Euclidean norm) to $a$ than $b$, i.e.,
+  $\{x \vert \left \Vert x - a\right \Vert_{2} \leq \left \Vert x - b \right \Vert_{2}\}$, is a halfspace. Describe it explicitly as an inequality of the form $c^{T}x \leq d$. Draw a picture.
+\end{prob}
+\begin{proof}
+  Give our set defined above, we want to show that our set is a halfspace.
+  Based on the definition of a norm, we know that it is nonnegative.  Thus, we know that
+  $\Vert x - a \Vert_{2} \leq \Vert x - b \Vert_{2}$ iff
+  $\Vert x - a \Vert^{2}_{2} \leq \Vert x - b \Vert^{2}_{2}$
+  \begin{eqnarray*}
+    \Vert x - a \Vert^{2}_{2} \leq \Vert x - b \Vert^{2}_{2} & \Leftrightarrow & (x - a)^{T}(x-a) \leq (x-b)^{T} (x-b)\\
+    & \Leftrightarrow & x^{T}x -2a^{T}x + a^{T}a \leq x^{T}x -2b^{T}x + b^{T}b\\
+    & \Leftrightarrow & 2(b - a)^{T}x \leq b^{T}b - a^{T}a\\
+  \end{eqnarray*}
+  So, we have that our set is a halfspace. Now, we need to express it as
+  $c^{T} x \leq d$. So, set $c = 2(b-a)$ and $d = b^{T}b - a^{T}a$.
+  
+\end{proof}

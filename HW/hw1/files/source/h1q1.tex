@@ -1,0 +1,29 @@
+\begin{prob}[1.1]
+  Let $\mathcal{C} \in \mathbf{R}^{n}$ be a convex set, with $x_{1},  \ldots, x_{k} \in \mathcal{C}$, and let $\theta_{1}, \ldots, \theta_{k} \in \mathbf{R}$ satisfy $\theta_{i} \geq 0$, $\theta_{1} + \cdots + \theta_{k} = 1$. Show that $\theta_{1}x_{1} + \cdots + \theta_{k}x_{k} \in \mathcal{C}$. (The definition of convexity is that this holds for $k=2$; you must show it for arbitrary $k$). Hint. Use induction on $k$.  
+\end{prob}
+\begin{proof}  Let $\mathcal{C} \in \mathbf{R}^{n}$ be a convex set, with $x_{1},  \ldots, x_{k} \in \mathcal{C}$, and let $\theta_{1}, \ldots, \theta_{k} \in \mathbf{R}$ satisfy $\theta_{i} \geq 0$, $\theta_{1} + \cdots + \theta_{k} = 1$. We want to show that
+  \[
+  \theta_{1}x_{1} + \cdots + \theta_{k}x_{k} \in \mathcal{C}
+  \]
+  In order to show this we will be performing induction on $k$.  By definition,
+  we know that this holds for $k=2$, i.e., if $x_{1},x_{2} \in \mathcal{C}$ and
+  $\theta_{1},\theta_{2} \in {R}$ where $\theta_{1} + \theta_{2} = 1$. Then
+  \[
+  \theta_{1}x_{1} + \theta_{2}x_{2} \in \mathcal{C}
+  \]
+  Now, we will assume that this holds for $k = m-1$, we want to show this holds
+  for $k = m$. So, let $x_{1}, \ldots, x_{m} \in \mathcal{C}$ and let
+  $\theta_{1},\ldots,\theta_{m} \in \mathbf{R}$ such that $\theta_{i} \geq 0$ and
+  $\theta_{1} + \cdots + \theta_{m} = 1$. We want to show that
+  $y = \theta_{1}x_{1} + \ldots + \theta_{m}x_{m} \in \mathcal{C}$ Since,
+  $\theta_{1} + \cdots + \theta_{m} = 1$ then at least one $\theta_{i}$ is
+  not equal to 1.  Let us assume that $\theta_{1} \neq 1$. Then we can
+  rewrite $y$ as
+  \begin{eqnarray*}
+    y &=& \theta_{1}x_{1} + \theta_{2}x_{2} + \ldots + \theta_{m-1}x_{m-1} + \theta_{m}x_{m}\\
+    &=& \theta_{1}x_{1} + (1-\theta_{1})(\frac{\theta_{2}}{1-\theta_{1}}x_{2} + \ldots + \frac{\theta_{m-1}}{1-\theta_{1}}x_{m-1} + \frac{\theta_{m}}{1-\theta_{1}}x_{m})\\
+  \end{eqnarray*}
+  Now, for any $i$ we have that $\frac{\theta_{i}}{(1-\theta_{1})} \geq 0$ and since $\theta_{2} + \ldots \theta_{m} = 1-\theta_{1}$ we have that $\frac{\theta_{2}}{(1-\theta_{1})} + \ldots +  \frac{\theta_{m}}{(1-\theta_{1})} =
+  \frac{\theta_{2} + \ldots + \theta_{m}}{(1-\theta_{1})} = \frac{(1 - \theta_{1})}{(1-\theta_{1})} = 1$.
+  Now, from the problem statement we know that $\mathcal{C}$ is convex and we know that $x_{2},\ldots,x_{m} \in \mathcal{C}$.  Thus, $\frac{\theta_{2}}{1-\theta_{1}}x_{2} + \ldots + \frac{\theta_{m-1}}{1-\theta_{1}}x_{m-1} + \frac{\theta_{m}}{1-\theta_{1}}x_{m} \in \mathcal{C}$. Hence, $y \in \mathcal{C}$
+\end{proof}
